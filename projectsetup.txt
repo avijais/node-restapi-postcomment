@@ -1,0 +1,6 @@
+1.	create project directory
+2.	go inside project directory and issue the command "npm init"
+3.	install express = npm install express
+4.	install nodemon = npm install nodemon
+5.	
+	
