@@ -1,18 +1,22 @@
 const express = require("express");
 const app = express()
+const mongoose = require("mongoose")
 
+// db connection
 require("./mongo")
 
-app.get("/posts", (req, res) => {
-	res.send({
-		name: "Avinash"
-	})
-})
+// model
+require("./model/Post")
 
-app.get("/posts/fetch", (req, res) => {
-	res.send({
-		name: "post fetch"
-	})
+const Post = mongoose.model("Post")
+
+app.get("/posts", async (req, res) => {
+	try {
+		const posts = await Post.find({})
+		res.send(posts)
+	} catch(error) {
+		res.status(500)
+	}
 })
 
 app.listen(3000,() => {
