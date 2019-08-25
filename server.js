@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express()
 
+require("./mongo")
+
 app.get("/posts", (req, res) => {
 	res.send({
 		name: "Avinash"
