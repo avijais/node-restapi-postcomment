@@ -1,0 +1,23 @@
+{
+  "name": "node-restapi-postcomment",
+  "version": "1.0.0",
+  "description": "REST Api implemented in NodeJs Express &amp; MongoDB, to manage Post &amp; their Comments with error handling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avijais/node-restapi-postcomment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avijais/node-restapi-postcomment/issues"
+  },
+  "homepage": "https://github.com/avijais/node-restapi-postcomment#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
