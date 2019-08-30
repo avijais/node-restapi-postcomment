@@ -10,6 +10,16 @@ require("./model/Post")
 
 const Post = mongoose.model("Post")
 
+app.get("/", async (req, res) => {
+	try {
+		res.send({
+			"message" : "its okay"
+		})
+	} catch(error) {
+		res.status(500)
+	}
+})
+
 app.get("/posts", async (req, res) => {
 	try {
 		const posts = await Post.find({})
