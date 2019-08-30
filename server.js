@@ -2,6 +2,7 @@ const express = require("express");
 const app = express()
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
+// const morgan = require("morgan")
 
 // db connection
 require("./mongo")
@@ -11,6 +12,7 @@ require("./model/Post")
 
 // Middleware
 app.use(bodyParser.json())
+	// .use(morgan)
 
 const Post = mongoose.model("Post")
 
@@ -50,6 +52,15 @@ app.post("/posts", async (req, res) => {
 	}
 })
 
+// fetch post
+app.get("/posts/:postId", async (req,res) => {
+	try {
+		const post = await Post.find({_id: req.params.postId})
+		res.send(post)
+	} catch(error) {
+		res.status(500)
+	}
+}) 
 
 app.listen(3000,() => {
 	console.log("server is running on port 3000")
