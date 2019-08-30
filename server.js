@@ -55,12 +55,42 @@ app.post("/posts", async (req, res) => {
 // fetch post
 app.get("/posts/:postId", async (req,res) => {
 	try {
-		const post = await Post.find({_id: req.params.postId})
+		// const post = await Post.find({_id: req.params.postId}) //use if want to get out put in arr
+		const post = await Post.findOne({_id: req.params.postId})
 		res.send(post)
 	} catch(error) {
 		res.status(500)
 	}
-}) 
+})
+
+// put
+app.put("/posts/:postId", async (req,res) => {
+	try {
+		const post = await Post.findByIdAndUpdate({
+			_id: req.params.postId
+		}, req.body, {
+			new : true,
+			runValidators: true
+		})
+
+		res.send(post)
+	} catch(error) {
+		res.status(500)
+	}
+})
+
+// put
+app.delete("/posts/:postId", async (req,res) => {
+	try {
+		const post = await Post.findByIdAndRemove({
+			_id: req.params.postId
+		})
+
+		res.send(post)
+	} catch(error) {
+		res.status(500)
+	}
+})
 
 app.listen(3000,() => {
 	console.log("server is running on port 3000")
