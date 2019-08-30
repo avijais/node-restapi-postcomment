@@ -7,5 +7,6 @@
 	credentials in git
 7.	to access .env files in code install package : npm install dotenv
 8.	create mongo.js file and write code for db connection and import dotenv file in mongo.js
-9.	
+9.	install "body-parser" package to get "post" and "get" method's data from request in api
+10.	
 	
